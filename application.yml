@@ -120,6 +120,6 @@ dynamo:
 
 encryption:
     master:
-        key: ${DB_ENCRYPTION_KEY}        
+        key: test-key       
 
             
