@@ -6,11 +6,11 @@ dynamo:
     access:
         key: ${AWS_ACCESS_KEY}
     db:
-        region: ${AWS_REGION}
+        region: ap-south-1
     secret:
         key: ${AWS_SECRET_KEY}
     server:
-        endpoint: ${AWS_ENDPOINT}
+        endpoint: dynamodb.ap-south-1.amazonaws.com
 encryption:
     master:
         key: ${DB_ENCRYPTION_KEY}
@@ -30,36 +30,19 @@ spring:
     axis:
         datasource:
             driver-class: org.postgresql.Driver
-            password: ${DB_PASSWORD}
-            url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/axis_mw?allowPublicKeyRetrieval=true&useSSL=false
-            username: ${DB_USERNAME}
+            password: Axis@2024
+            url: jdbc:postgresql://192.168.2.207:5433/axis_mw?serverTimezone=UTC
+            username: axis
     cms:
         datasource:
             driver-class: org.postgresql.Driver
-            password: ${DB_PASSWORD}
-            url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/cms?allowPublicKeyRetrieval=true&useSSL=false
-            username: ${DB_USERNAME}
+            password: Axis@2024
+            url: jdbc:postgresql://192.168.2.207:5433/strapi?serverTimezone=UTC
+            username: axis
     jpa:
         database-platform: org.hibernate.dialect.PostgreSQLDialect
         hibernate:
-            ddl-auto: update
             naming:
                 physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-        properties:
-            hibernate:
-                format_sql: true
-        show-sql: true
     main:
         allow-bean-definition-overriding: true
-        
-logging:
-  level:
-    org:
-      springframework: ERROR
-  pattern:
-    level: INFO
-    console: "%d{yyyy-MM-dd HH:mm:ss} ${HOSTNAME} [%thread] %-5level [%logger{36}.%M:%L] %X{traceId} %msg%n"
-  logback:
-    rollingpolicy:
-      max-history: 9999
-      max-file-size: 1024MB     
