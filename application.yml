@@ -13,7 +13,7 @@ dynamo:
         endpoint: dynamodb.ap-south-1.amazonaws.com
 encryption:
     master:
-        key: ${DB_ENCRYPTION_KEY}
+        key: tesbksdag-tweri-65767
 management:
     endpoint:
         metrics:
