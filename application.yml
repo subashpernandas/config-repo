@@ -46,3 +46,73 @@ spring:
                 physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     main:
         allow-bean-definition-overriding: true
+ aggregator:
+    internal:
+        base:
+            url: http://localhost:8080/aggregater-service
+        get:
+            scheme:
+                service:
+                    url: /GetSchemeInFolio
+api:
+    config:
+        agent:
+            id: SELF/DIRECT
+        branch:
+            mobile: MA88
+            web: WB99
+        fund: 128
+        id: id
+        kfin:
+            tech:
+                password: RFBVcmhEeC4rQXJZ-xb8Sn6oQcxM=
+                username: KCPLBGFGI7PW
+        sip:
+            type: Online
+        source: MSIL
+app:
+    axis:
+        drop-link:
+            service:
+                base:
+                    url: http://localhost:8081/droplink-services/droplink
+                get:
+                    url: /${id}/v1
+                update:
+                    url: /update/v1
+fetch:
+    otp:
+        service:
+            url: /fetchOTP
+kfintech:
+    additional:
+        purchase:
+            service:
+                url: /MultiCart
+    base:
+        url: https://axismfservicesuat.kfintech.com/AXISMFMSILServices/AXISMFAPIV2.svc
+    confirm:
+        mcart:
+            service:
+                url: /ConfirmMulticart
+    get-folio-details:
+        service:
+            url: /GetFolioDetails
+    get-token-pan-login:
+        service:
+            url: /GetTokenPANLogin
+    purchase:
+        mcart:
+            service:
+                url: /NewPurchaseMulticart
+resend:
+    otp:
+        service:
+            url: /resendOTP
+verify:
+    otp:
+        service:
+            url: /verifyOTP       
+        
+        
+        
