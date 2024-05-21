@@ -116,6 +116,10 @@ dynamo:
     secret:
         key: access-key
     server:
-        endpoint: http://localhost:9056    
+        endpoint: http://localhost:9056
+
+encryption:
+    master:
+        key: ${DB_ENCRYPTION_KEY}        
 
             
