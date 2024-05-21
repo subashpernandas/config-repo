@@ -36,9 +36,9 @@ dynamo:
     db:
         region: ap-south-1
     server:
-        access-key: ${AWS_ACCESS_KEY}
-        endpoint: ${AWS_ENDPOINT}
-        secret-key: ${AWS_SECRET_KEY}
+        access-key: test-access-key
+        endpoint: test-end-point
+        secret-key: test-secret-key
 fetch:
     otp:
         service:
