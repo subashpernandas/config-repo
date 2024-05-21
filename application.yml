@@ -29,7 +29,7 @@ app:
                 base:
                     url: http://localhost:8081/droplink-services/droplink
                 get:
-                    url: /${id}/v1
+                    url: "/${id}/v1"
                 update:
                     url: /update/v1
 fetch:
