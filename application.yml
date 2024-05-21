@@ -116,6 +116,6 @@ dynamo:
     secret:
         key: ${AWS_SECRET_KEY}
     server:
-        endpoint: ${AWS_ENDPOINT}            
+        endpoint: http://localhost:9056    
 
             
