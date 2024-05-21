@@ -1,52 +1,4 @@
-axis:
-    audit:
-        message:
-            url: http://localhost:8080
-dynamo:
-    access:
-        key: ${AWS_ACCESS_KEY}
-    db:
-        region: ap-south-1
-    secret:
-        key: ${AWS_SECRET_KEY}
-    server:
-        endpoint: dynamodb.ap-south-1.amazonaws.com
-encryption:
-    master:
-        key: tesbksdag-tweri-65767
-management:
-    endpoint:
-        metrics:
-            enabled: true
-    endpoints:
-        web:
-            exposure:
-                include: info,health,prometheus
-    metrics:
-        export:
-            prometheus:
-                enabled: true
-spring:
-    axis:
-        datasource:
-            driver-class: org.postgresql.Driver
-            password: Axis@2024
-            url: jdbc:postgresql://192.168.2.207:5433/axis_mw?serverTimezone=UTC
-            username: axis
-    cms:
-        datasource:
-            driver-class: org.postgresql.Driver
-            password: Axis@2024
-            url: jdbc:postgresql://192.168.2.207:5433/strapi?serverTimezone=UTC
-            username: axis
-    jpa:
-        database-platform: org.hibernate.dialect.PostgreSQLDialect
-        hibernate:
-            naming:
-                physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-    main:
-        allow-bean-definition-overriding: true
- aggregator:
+aggregator:
     internal:
         base:
             url: http://localhost:8080/aggregater-service
@@ -70,20 +22,34 @@ api:
         sip:
             type: Online
         source: MSIL
-app:
-    axis:
-        drop-link:
-            service:
-                base:
-                    url: http://localhost:8081/droplink-services/droplink
-                get:
-                    url: /${id}/v1
-                update:
-                    url: /update/v1
+axis:
+    audit:
+        message:
+            url: http://localhost:8080
+dynamo:
+    access:
+        key: ${AWS_ACCESS_KEY}
+    db:
+        region: ${AWS_REGION}
+    secret:
+        key: ${AWS_SECRET_KEY}
+    server:
+        endpoint: ${AWS_ENDPOINT}
+encryption:
+    master:
+        key: ${DB_ENCRYPTION_KEY}
 fetch:
     otp:
         service:
             url: /fetchOTP
+generate:
+    otp:
+        service:
+            url: /generateOTP
+generte:
+    otp:
+        base:
+            url: http://localhost:8084/otp-service
 kfintech:
     additional:
         purchase:
@@ -105,14 +71,48 @@ kfintech:
         mcart:
             service:
                 url: /NewPurchaseMulticart
+management:
+    endpoint:
+        metrics:
+            enabled: true
+    endpoints:
+        web:
+            exposure:
+                include: info,health,prometheus
+    metrics:
+        export:
+            prometheus:
+                enabled: true
 resend:
     otp:
         service:
             url: /resendOTP
+spring:
+    axis:
+        datasource:
+            driver-class: org.postgresql.Driver
+            password: ${DB_PASSWORD}
+            url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/axis_mw?allowPublicKeyRetrieval=true&useSSL=false
+            username: ${DB_USERNAME}
+    cms:
+        datasource:
+            driver-class: org.postgresql.Driver
+            password: ${DB_PASSWORD}
+            url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/cms?allowPublicKeyRetrieval=true&useSSL=false
+            username: ${DB_USERNAME}
+    jpa:
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+        hibernate:
+            ddl-auto: update
+            naming:
+                physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        properties:
+            hibernate:
+                format_sql: true
+        show-sql: true
+    main:
+        allow-bean-definition-overriding: true
 verify:
     otp:
         service:
-            url: /verifyOTP       
-        
-        
-        
+            url: /verifyOTP
