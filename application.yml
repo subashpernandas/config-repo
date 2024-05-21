@@ -110,11 +110,11 @@ verify:
 
 dynamo:
     access:
-        key: ${AWS_ACCESS_KEY}
+        key: secret-key
     db:
-        region: ${AWS_REGION}
+        region: ap-south1
     secret:
-        key: ${AWS_SECRET_KEY}
+        key: access-key
     server:
         endpoint: http://localhost:9056    
 
