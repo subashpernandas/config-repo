@@ -1,0 +1,118 @@
+aggregator:
+    internal:
+        base:
+            url: http://localhost:8080/aggregater-service
+        get:
+            scheme:
+                service:
+                    url: /GetSchemeInFolio
+api:
+    config:
+        agent:
+            id: SELF/DIRECT
+        branch:
+            mobile: MA88
+            web: WB99
+        fund: 128
+        id: id
+        kfin:
+            tech:
+                password: RFBVcmhEeC4rQXJZ-xb8Sn6oQcxM=
+                username: KCPLBGFGI7PW
+        sip:
+            type: Online
+        source: MSIL
+axis:
+    audit:
+        message:
+            url: http://localhost:8080
+dynamo:
+    access:
+        key: ${AWS_ACCESS_KEY}
+    db:
+        region: ${AWS_REGION}
+    secret:
+        key: ${AWS_SECRET_KEY}
+    server:
+        endpoint: ${AWS_ENDPOINT}
+encryption:
+    master:
+        key: ${DB_ENCRYPTION_KEY}
+fetch:
+    otp:
+        service:
+            url: /fetchOTP
+generate:
+    otp:
+        service:
+            url: /generateOTP
+generte:
+    otp:
+        base:
+            url: http://localhost:8084/otp-service
+kfintech:
+    additional:
+        purchase:
+            service:
+                url: /MultiCart
+    base:
+        url: https://axismfservicesuat.kfintech.com/AXISMFMSILServices/AXISMFAPIV2.svc
+    confirm:
+        mcart:
+            service:
+                url: /ConfirmMulticart
+    get-folio-details:
+        service:
+            url: /GetFolioDetails
+    get-token-pan-login:
+        service:
+            url: /GetTokenPANLogin
+    purchase:
+        mcart:
+            service:
+                url: /NewPurchaseMulticart
+management:
+    endpoint:
+        metrics:
+            enabled: true
+    endpoints:
+        web:
+            exposure:
+                include: info,health,prometheus
+    metrics:
+        export:
+            prometheus:
+                enabled: true
+resend:
+    otp:
+        service:
+            url: /resendOTP
+spring:
+    axis:
+        datasource:
+            driver-class: org.postgresql.Driver
+            password: ${DB_PASSWORD}
+            url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/axis_mw?allowPublicKeyRetrieval=true&useSSL=false
+            username: ${DB_USERNAME}
+    cms:
+        datasource:
+            driver-class: org.postgresql.Driver
+            password: ${DB_PASSWORD}
+            url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/cms?allowPublicKeyRetrieval=true&useSSL=false
+            username: ${DB_USERNAME}
+    jpa:
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+        hibernate:
+            ddl-auto: update
+            naming:
+                physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        properties:
+            hibernate:
+                format_sql: true
+        show-sql: true
+    main:
+        allow-bean-definition-overriding: true
+verify:
+    otp:
+        service:
+            url: /verifyOTP
